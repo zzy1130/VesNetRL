@@ -1,3 +1,2 @@
 .DS_Store
 __pycache__/
-UNet_ckpt/unet_usseg_phantom.pth
