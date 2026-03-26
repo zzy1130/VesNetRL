@@ -161,7 +161,7 @@ class Env_multi_sim_img_test():
         area=areas[max_area_index]
         rect = cv2.minAreaRect(c)
         box = cv2.cv.Boxpoints() if imutils.is_cv2()else cv2.boxPoints(rect)
-        box = np.int0(box)
+        box = np.intp(box)
         box = np.clip(box, 0, 255)
         width=np.linalg.norm(box[0]-box[1])
         height=np.linalg.norm(box[1]-box[2])
@@ -312,7 +312,7 @@ class Env_multi_re_img_a2c_test():
         area=areas[max_area_index]
         rect = cv2.minAreaRect(c)
         box = cv2.cv.Boxpoints() if imutils.is_cv2()else cv2.boxPoints(rect)
-        box = np.int0(box)
+        box = np.intp(box)
         box = np.clip(box, 0, 255)
         width=np.linalg.norm(box[0]-box[1])
         height=np.linalg.norm(box[1]-box[2])

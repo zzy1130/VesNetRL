@@ -42,7 +42,7 @@ env=Env_multi_sim_img_test(configs=configs, num_channels=4)
 
 model = VesNet_RL(env.num_channels, 5, env.num_actions).to(device)
 
-model.load_state_dict(torch.load('VesNet_RL_ckpt/trained_model/checkpoint.pth',map_location='cuda'))
+model.load_state_dict(torch.load('VesNet_RL_ckpt/trained_model/checkpoint.pth',map_location=device))
 
 episode_length = 0
 done = True

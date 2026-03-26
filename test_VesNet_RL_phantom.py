@@ -25,7 +25,7 @@ env=Env_multi_re_img_a2c_test(n1_img=n1_img,num_channels=4,points_interval=20)
 
 model = VesNet_RL(env.num_channels, 5, env.num_actions).to(device)
 
-model.load_state_dict(torch.load('VesNet_RL_ckpt/trained_model/checkpoint.pth',map_location='cuda'))
+model.load_state_dict(torch.load('VesNet_RL_ckpt/trained_model/checkpoint.pth',map_location=device))
 
 episode_length = 0
 done = True

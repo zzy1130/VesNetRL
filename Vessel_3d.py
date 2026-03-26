@@ -236,7 +236,7 @@ class Vessel_3d:
         self.probe_width=probe_width
         self.n1_header=self.n1_img.header
         self.unet_best = UNet(init_features=64).to(self.device)
-        self.unet_best.load_state_dict(torch.load(unet_file))
+        self.unet_best.load_state_dict(torch.load(unet_file, map_location=self.device))
         self.unet_best = self.unet_best.eval()
         # self.unet_best=unet_best
         self.version=sys.version[0]

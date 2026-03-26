@@ -83,10 +83,11 @@ class VesNet_RL(torch.nn.Module):
     def forward(self, inputs):
         (image,actions,area_changes), (hx, cx) = inputs
 
-        image=torch.from_numpy(image).float().to('cuda')
+        device = hx.device
+        image=torch.from_numpy(image).float().to(device)
         z=self.Conv(image.unsqueeze(0)).flatten()
-        actions=torch.from_numpy(actions).float().to('cuda')
-        area_changes=torch.from_numpy(area_changes).float().to('cuda')
+        actions=torch.from_numpy(actions).float().to(device)
+        area_changes=torch.from_numpy(area_changes).float().to(device)
 
         inputs = torch.cat((z,actions,area_changes),dim=0).flatten()
         hx, cx = self.lstm(inputs.unsqueeze(0), (hx, cx))
